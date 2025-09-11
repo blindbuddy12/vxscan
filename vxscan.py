@@ -402,7 +402,7 @@ class VXScan:
             r = self.get(url)
             if r and r.status_code == 200 and r.text.strip():
                 sev = "Medium" if path != "robots.txt" else "Info"
-                snippet = r.text[:200].replace("
+                snippet = r.text[:200].replace("\n", " ")
 ", " ")
                 self.result.add(Finding("Sensitive File", url, f"Accessible {path}", evidence=snippet, severity=sev))
 
