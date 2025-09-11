@@ -17,3 +17,8 @@ It detects:
 ## Usage
 ```bash
 python vxscan.py --url http://example.com/
+
+## Example Report
+
+![Report 1](screenshots/report1.png)  
+![Report 2](screenshots/report2.png)
