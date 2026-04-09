@@ -301,7 +301,7 @@ class VXScan:
                     futs.append(ex.submit(test_on_page, url, r.text))
             for _ in futures.as_completed(futs):
                 pass
-
+    
     # --- SQLi ---
     def test_sqli(self):
         def try_inject(url: str):
@@ -403,7 +403,6 @@ class VXScan:
             if r and r.status_code == 200 and r.text.strip():
                 sev = "Medium" if path != "robots.txt" else "Info"
                 snippet = r.text[:200].replace("\n", " ")
-", " ")
                 self.result.add(Finding("Sensitive File", url, f"Accessible {path}", evidence=snippet, severity=sev))
 
         # 2) Probe for common file basenames with sensitive extensions (new enhancement)
@@ -415,8 +414,7 @@ class VXScan:
                 if r and r.status_code == 200 and r.text and len(r.text) > 20:
                     # classify severity: php files often more sensitive
                     sev = "High" if ext in (".php", ".inc") else "Medium"
-                    snippet = r.text[:300].replace("
-", " ")
+                    snippet = r.text[:300].replace("\n", " ")
                     self.result.add(Finding("Exposed File", url, f"Accessible file {probe_path}", evidence=snippet, severity=sev))
 
     # --- Dir brute force ---
