@@ -47,13 +47,13 @@ python vxscan.py --url http://example.com --max-pages 20 --depth 2
 ![Report 1](screenshots/report1.png)  
 ![Report 2](screenshots/report2.png)
 
-## Disclaimer
+⚠️ Disclaimer
 
 This tool is for educational and authorized testing only.
 
 Do NOT scan systems without permission.
 
-## Author
+🧑‍💻 Author
 
 Developed as a cybersecurity learning project to demonstrate:
 
@@ -61,37 +61,10 @@ Web security fundamentals
 Vulnerability detection techniques
 Secure coding practices
 
-## Future Improvements
+⭐ Future Improvements
 
 More vulnerability modules (SSRF, IDOR, Command Injection)
 Machine Learning-based detection
 Web dashboard (Flask)
 Burp Suite-like interface
 
----
-
-# 🧠 WHY THIS IS BETTER
-
-Your old README:
-❌ Too short  
-❌ No structure  
-❌ No GUI mention  
-❌ No professionalism  
-
-New README:
-✔ Structured  
-✔ Explains features clearly  
-✔ Shows GUI  
-✔ Shows output  
-✔ Looks like real security tool  
-
----
-
-# 🚀 SMALL OPTIONAL UPGRADE
-
-If you added GUI screenshot:
-
-```markdown```
-## 🖥️ GUI Preview
-
-![GUI](screenshots/gui.png)
